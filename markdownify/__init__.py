@@ -176,6 +176,9 @@ class MarkdownConverter(object):
                      or el.next_sibling.name in ['ul', 'ol'])):
             text = text.rstrip()
 
+        if el.parent.name == 'td':
+            text = text.strip()
+
         return text
 
     def __getattr__(self, attr):
